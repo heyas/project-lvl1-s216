@@ -36,6 +36,23 @@ const generateCalc = () => {
   return [number1 + operand.symbol + number2, rightAnswer];
 };
 
+const generateLargestDivider = () => {
+  const number1 = Math.floor(Math.random() * 100);
+  const number2 = Math.floor(Math.random() * 100);
+  const greatestDivisor = (a, b) => {
+    const next = (max, min) => {
+      if (max % min === 0) {
+        return min;
+      }
+      return next(min, max % min);
+    };
+    const [max, min] = a > b ? [a, b] : [b, a];
+    return next(max, min);
+  };
+  const rightAnswer = greatestDivisor(number1, number2);
+  return [`${number1} ${number2}`, rightAnswer];
+};
+
 export const createGame = questionGenerateFunction => () => {
   const name = greetings();
   for (let rightAnswers = 0; rightAnswers < 3;) {
@@ -55,6 +72,7 @@ export const createGame = questionGenerateFunction => () => {
 
 export const even = createGame(generateQuestion);
 export const calc = createGame(generateCalc);
+export const gcd = createGame(generateLargestDivider);
 
 export const games = () => {
   greetings();
