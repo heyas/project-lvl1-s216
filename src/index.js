@@ -29,3 +29,7 @@ export const even = () => {
   }
   console.log(`Congratulations, ${name}!`);
 };
+
+export const games = () => {
+  greetings();
+};
