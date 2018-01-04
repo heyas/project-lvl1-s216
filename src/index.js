@@ -59,7 +59,7 @@ export const createGame = questionGenerateFunction => () => {
     const [question, rightAnswer] = questionGenerateFunction();
     console.log('Question:', question);
     const userAnswer = ask();
-    if (userAnswer == rightAnswer) {
+    if (userAnswer === rightAnswer.toString()) {
       rightAnswers += 1;
       console.log('Correct!');
     } else {
