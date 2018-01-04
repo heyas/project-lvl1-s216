@@ -37,8 +37,8 @@ const generateCalc = () => {
 };
 
 const generateLargestDivider = () => {
-  const number1 = Math.floor(Math.random() * 100);
-  const number2 = Math.floor(Math.random() * 100);
+  const number1 = Math.ceil(Math.random() * 100);
+  const number2 = Math.ceil(Math.random() * 100);
   const greatestDivisor = (a, b) => {
     const next = (max, min) => {
       if (max % min === 0) {
