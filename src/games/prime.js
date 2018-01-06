@@ -2,12 +2,15 @@ import game from '..';
 import random from '../utils';
 
 const main = () => {
-  const isPrimal = (n, d) => {
-    if (d >= n / 2) { return false; }
-    return n % d === 0 ? true : isPrimal(n, d + 1);
+  const isPrime = (question) => {
+    const next = (n, d) => {
+      if (d >= n / 2) { return false; }
+      return n % d === 0 ? true : next(n, d + 1);
+    };
+    return next(question, 2);
   };
   const question = random(1, 100);
-  const rightAnswer = !isPrimal(question, 2) ? 'yes' : 'no';
+  const rightAnswer = !isPrime(question) ? 'yes' : 'no';
   return [`Is this number prime? ${question}`, rightAnswer];
 };
 
