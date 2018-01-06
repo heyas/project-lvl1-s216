@@ -1,9 +1,10 @@
 import game from '..';
+import random from '../utils';
 
 const main = () => {
-  const randomNumber = Math.ceil(Math.random() * 10)
+  const randomNumber = random(1, 10);
   const action = num => num + randomNumber;
-  let num = Math.ceil(Math.random() * 10);
+  let num = random(1, 10);
   const row = [];
   for (let i = 0; i < 10; i += 1) {
     row.push(num);

@@ -1,8 +1,9 @@
 import game from '..';
+import random from '../utils';
 
 const main = () => {
-  const number1 = Math.ceil(Math.random() * 100);
-  const number2 = Math.ceil(Math.random() * 100);
+  const number1 = random(1, 100);
+  const number2 = random(1, 100);
   const greatestDivisor = (a, b) => {
     const next = (max, min) => {
       if (max % min === 0) {

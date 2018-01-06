@@ -1,8 +1,9 @@
 import game from '..';
+import random from '../utils';
 
 const main = () => {
-  const number1 = Math.floor(Math.random() * 10);
-  const number2 = Math.floor(Math.random() * 10);
+  const number1 = random(1, 10);
+  const number2 = random(1, 10);
   const operandArray = [
     {
       func: (a, b) => a - b,

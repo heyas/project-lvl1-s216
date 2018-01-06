@@ -1,8 +1,9 @@
 import game from '..';
+import random from '../utils';
 
 const main = () => {    
   const balance = (str) => {
-    const isBalanced = (num) => Math.max(...num) - Math.min(...num) <= 1;
+    const isBalanced = num => Math.max(...num) - Math.min(...num) <= 1;
 
     const arr = [...str].sort((a, b) => a - b);
 
@@ -14,7 +15,7 @@ const main = () => {
     return arr.join('');
   };
 
-  const question = Math.floor(Math.random() * 9900) + 100;
+  const question = random(100, 1000);
   const rightAnswer = balance(question.toString());
   return [question, rightAnswer];
 };

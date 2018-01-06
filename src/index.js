@@ -8,7 +8,7 @@ export const greetings = () => {
 
 const ask = () => readlineSync.question();
 
-export default gameFunction => () => {
+const game = gameFunction => () => {
   console.log('Welcome to the Brain Games!');
   const name = greetings();
   for (let rightAnswers = 0; rightAnswers < 3;) {
@@ -25,3 +25,5 @@ export default gameFunction => () => {
   }
   console.log(`Congratulations, ${name}!`);
 };
+
+export default game;
