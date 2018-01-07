@@ -13,9 +13,9 @@ const main = () => {
     return [`${createGame(sValue, pStep, n - 1)},${n === questionElement ? '...' : nthMemberOfArithProgr(sValue, pStep, n)}`];
   };
 
-  const question1 = createGame(startValue, step, 10);
+  const question = createGame(startValue, step, 10);
   const rightQuestion = nthMemberOfArithProgr(startValue, step, questionElement);
-  return [question1, rightQuestion];
+  return [question, rightQuestion];
 };
 
 export default game(main);
