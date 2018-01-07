@@ -1,12 +1,10 @@
 import game from '..';
-import random from '../utils';
+import { random, nthMemberOfArithProgr } from '../utils';
 
 const main = () => {
   const step = random(1, 10);
   const questionElement = random(1, 10);
   const startValue = random(1, 100);
-
-  const nthMemberOfArithProgr = (value, pStep, n) => (value + (pStep * (n - 1)));
 
   const createGame = (sValue, pStep, n) => {
     if (n === 1) { return nthMemberOfArithProgr(sValue, step, n); }
