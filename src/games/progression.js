@@ -11,20 +11,17 @@ const main = () => {
     return nthMemberOfArithProgr(value + progressionStep, progressionStep, n - 1);
   };
 
-  const getGameParams = (questionItem) => {
-    let question = '';
-    let rightAnswer = '';
-    for (let i = 1; i < 11; i += 1) {
-      if (i === questionItem) {
-        question += '...,';
-        rightAnswer = nthMemberOfArithProgr(startValue, step, i);
-      } else {
-        question += `${nthMemberOfArithProgr(startValue, step, i)},`;
-      }
+  let question = '';
+  let rightAnswer = '';
+  for (let i = 1; i < 11; i += 1) {
+    if (i === questionElement) {
+      question += '...,';
+      rightAnswer = nthMemberOfArithProgr(startValue, step, i);
+    } else {
+      question += `${nthMemberOfArithProgr(startValue, step, i)},`;
     }
-    return [question, rightAnswer];
-  };
-  return getGameParams(questionElement);
+  }
+  return [question, rightAnswer];
 };
 
 export default game(main);
