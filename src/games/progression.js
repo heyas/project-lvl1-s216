@@ -6,22 +6,16 @@ const main = () => {
   const questionElement = random(1, 10);
   const startValue = random(1, 100);
 
-  const nthMemberOfArithProgr = (value, progressionStep, n) => {
-    if (n === 1) { return value; }
-    return nthMemberOfArithProgr(value + progressionStep, progressionStep, n - 1);
+  const nthMemberOfArithProgr = (value, pStep, n) => (value + (pStep * (n - 1)));
+
+  const createGame = (sValue, pStep, n) => {
+    if (n === 1) { return nthMemberOfArithProgr(sValue, step, n); }
+    return [`${createGame(sValue, pStep, n - 1)},${n === questionElement ? '...' : nthMemberOfArithProgr(sValue, pStep, n)}`];
   };
 
-  let question = '';
-  let rightAnswer = '';
-  for (let i = 1; i < 11; i += 1) {
-    if (i === questionElement) {
-      question += '...,';
-      rightAnswer = nthMemberOfArithProgr(startValue, step, i);
-    } else {
-      question += `${nthMemberOfArithProgr(startValue, step, i)},`;
-    }
-  }
-  return [question, rightAnswer];
+  const question1 = createGame(startValue, step, 10);
+  const rightQuestion = nthMemberOfArithProgr(startValue, step, questionElement);
+  return [question1, rightQuestion];
 };
 
 export default game(main);
