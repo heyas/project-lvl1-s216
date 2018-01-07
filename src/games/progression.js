@@ -5,17 +5,26 @@ const main = () => {
   const step = random(1, 10);
   const questionElement = random(1, 10);
   const startValue = random(1, 100);
-  const progression = (n, iteration, question, rightAnswer) => {
-    if (iteration === 0) {
-      return [question, rightAnswer];
-    }
-    if (iteration === questionElement) {
-      return progression(n + step, iteration - 1, `${question}...`, n);
-    }
-    return progression(n + step, iteration - 1, `${question}${n},`, rightAnswer);
+
+  const nthMemberOfArithProgr = (value, progressionStep, n) => {
+    if (n === 1) { return value; }
+    return nthMemberOfArithProgr(value + progressionStep, progressionStep, n - 1);
   };
 
-  return progression(startValue, 10, '');
+  const getGameParams = (questionItem) => {
+    let question = '';
+    let rightAnswer = '';
+    for (let i = 1; i < 11; i += 1) {
+      if (i === questionItem) {
+        question += '...,';
+        rightAnswer = nthMemberOfArithProgr(startValue, step, i);
+      } else {
+        question += `${nthMemberOfArithProgr(startValue, step, i)},`;
+      }
+    }
+    return [question, rightAnswer];
+  };
+  return getGameParams(questionElement);
 };
 
 export default game(main);
